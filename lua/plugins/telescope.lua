@@ -39,6 +39,17 @@ return {
       -- Telescope picker. This is really useful to discover what Telescope can
       -- do as well as how to actually do it!
       require('telescope').setup {
+        pickers = {
+          find_files = {
+            find_command = { 'rg', '--files', '--color', 'never', '--hidden', '--iglob', '!.git' },
+          },
+          grep_string = {
+            additional_args = { '--hidden' },
+          },
+          live_grep = {
+            additional_args = { '--hidden' },
+          },
+        },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
